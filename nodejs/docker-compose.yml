@@ -1,0 +1,14 @@
+version: '3'
+services:
+  node:
+    container_name: node_server
+    image: node:10-alpine
+    volumes:
+      - './:/var/www/app'
+    working_dir: '/var/www/app'
+    command: ['/bin/sh', '-c', 'tail -f /dev/null']
+    environment:
+      - PORT=8080
+    ports:
+      - 8080:8080
+    restart: always
